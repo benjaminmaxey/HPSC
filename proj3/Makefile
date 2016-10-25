@@ -12,4 +12,4 @@ lagrange2D: test_Lagrange2D.o matrix.o
 	g++ -c $< $(FLAG)
 
 clean:
-	rm -f *.txt *.o newton lagrange2D
+	rm -f *.txt *.o test_Newtonform lagrange2D
