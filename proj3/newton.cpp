@@ -1,5 +1,13 @@
+//*****************************************************************************
+//	Author: Ben Maxey
+//
+//	The three functions in newton.cpp interpolate a given function using
+//	a polynomial in Newton form.
+//*****************************************************************************
+
 #include "newton.hpp"
 
+//Evaluates Newton basis function with nodes xnodes, degree n, at x
 double Newton_basis(Matrix& xnodes, int n, double x)
 {
 	double product = 1.0;
@@ -10,6 +18,7 @@ double Newton_basis(Matrix& xnodes, int n, double x)
 	return product;
 }
 
+//Evaluates Newton polynomial with coefficients a, nodes xnodes, at x
 double Newton_nestedform(Matrix& a, Matrix& xnodes, double x)
 {
 	int n = a.Cols() - 1;
@@ -21,6 +30,7 @@ double Newton_nestedform(Matrix& a, Matrix& xnodes, double x)
 	return output;
 }
 
+//Generates coefficients iteratively using previously calculated coefficients
 Matrix Newton_coefficients(Matrix& xnodes, Matrix& ynodes)
 {
 	Matrix a(1,xnodes.Cols());
