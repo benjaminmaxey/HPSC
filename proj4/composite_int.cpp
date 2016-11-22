@@ -8,24 +8,19 @@
 //	integration), and const int n (the number of subintervals).
 //*****************************************************************************
 
-#include <iostream>
-#include <cmath>
-
-#include "fcn.hpp"
-
 double composite_int(Fcn& f, const double a, const double b, const int n)
 {
 	//Width of intervals.
 	double h = (b - a)/n;
 
 	//Nodes and weights.
-	double x0 = -sqrt((1/7) * (3 - 4 * sqrt(0.3)));
-	double x1 = -sqrt((1/7) * (3 + 4 * sqrt(0.3)));
-	double x2 = sqrt((1/7) * (3 - 4 * sqrt(0.3)));
-	double x3 = sqrt((1/7) * (3 + 4 * sqrt(0.3)));
+	double x0 = -sqrt((1.0/7.0) * (3.0 - 4.0 * sqrt(0.3)));
+	double x1 = -sqrt((1.0/7.0) * (3.0 + 4.0 * sqrt(0.3)));
+	double x2 = sqrt((1.0/7.0) * (3.0 - 4.0 * sqrt(0.3)));
+	double x3 = sqrt((1.0/7.0) * (3.0 + 4.0 * sqrt(0.3)));
 
-	double w0 = 0.5 + (1/12) * sqrt(10/3);
-	double w1 = 0.5 - (1/12) * sqrt(10/3);
+	double w0 = 0.5 + (1.0/12.0) * sqrt(10.0/3.0);
+	double w1 = 0.5 - (1.0/12.0) * sqrt(10.0/3.0);
 
 	double sum = 0.0;
 	double xmid, n0, n1, n2, n3;
@@ -34,7 +29,7 @@ double composite_int(Fcn& f, const double a, const double b, const int n)
 	for (int i = 0; i < n; i++)
 	{
 		//Determine evaluation points.
-		xmid = a + (i + 0.5) * h
+		xmid = a + (i + 0.5) * h;
 		n0 = xmid + 0.5 * h * x0;
 		n1 = xmid + 0.5 * h * x1;
 		n2 = xmid + 0.5 * h * x2;
